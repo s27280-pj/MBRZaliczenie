@@ -36,6 +36,12 @@ public class TransferService {
         int newBalance;
         Transfer transfer = new Transfer();
         Client client = clientStorage.findClientbyID(clientID);
+
+        if (client == null){
+            System.out.println("Client not exist");
+            return null;
+        }
+
         newBalance = client.getBalance() + amount;
 
         if (amount < 0){
